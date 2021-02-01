@@ -1,6 +1,6 @@
 # Servicio detector de mutantes 
 
-###Objetivo
+### Objetivo
 
 Servicio que detecta si un humano es mutante basándose en su secuencia de ADN.
 
@@ -8,7 +8,7 @@ Se recibe como parámetro un array de Strings que representan cada fila de una t
 Las letras de los Strings solo pueden ser: (A,T,C,G), las cuales representa cada base nitrogenada del ADN.
 
 
-###Descripción
+### Descripción
 
 Microservicio RestFul desarrollado con tecnología Java (JDK 11), utilizando arquitectura hexagonal.
 
@@ -68,7 +68,7 @@ El proyecto tiene la siguiente estructura:
 
 ---
 
-##Especificaciones técnicas
+## Especificaciones técnicas
 
 - JDK 11
 - Maven   
@@ -90,7 +90,7 @@ El proyecto tiene la siguiente estructura:
 
 
 
-##Compilar, verificar y ejecutar
+## Compilar, verificar y ejecutar
 
 Realizar los siguientes pasos:
 
@@ -112,7 +112,7 @@ mvn spring-boot:run -Dspring.profiles.active=h2
 El servicio utiliza el puerto 9100 (configurable)
 
 
-##Servicio
+## Servicio
 
 El servicio tiene la siguiente dirección:
 ```
@@ -204,7 +204,7 @@ curl --location --request GET 'http://localhost:9100/api/v1/mutants/stats'
 }
 ```
 
-##Infraestructura
+## Infraestructura
 
 **Docker**
 
@@ -220,7 +220,7 @@ Ejecute los siguientes pasos para construir y ejecutar una imagen utilizando DOC
 - docker run -p 9100:9100 -e "SPRING_PROFILES_ACTIVE=h2" mdt/mutant:latest
 
 
-##Consideraciones
+## Consideraciones
 
 
 - Tener en cuenta que la API puede recibir fluctuaciones agresivas de tráfico (Entre 100 y 1
@@ -234,7 +234,7 @@ Con la consideración anterior, se determinaron las siguientes especificaciones 
 [Manifiesto Sistemas Reactivo](https://www.reactivemanifesto.org/)
   
 
-#Servicio en producción
+# Servicio en producción
 
 Las siguientes consideraciones para desplegar el servicio en ambiente productivo:
 
