@@ -1,0 +1,52 @@
+---
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+
+management:
+  endpoints:
+    enabled-by-default: false
+  endpoint:
+    health:
+      enabled: true
+      show-details: never
+      cache:
+        time-to-live: 20000ms
+    info:
+      enabled: true
+
+server:
+  port: 9100
+  error:
+    include-message: always
+
+info:
+  build:
+    group: @project.groupId@
+    artifact: @project.artifactId@
+    version: @project.version@
+    name: Mutant Detector Service
+---
+spring.profiles: h2
+
+spring:
+  datasource:
+    url: jdbc:h2:file:~/data/demoRefKt;TRACE_LEVEL_FILE=4
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    initialization-mode: never
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+
+  h2:
+    console:
+      enabled: false
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: false
+---

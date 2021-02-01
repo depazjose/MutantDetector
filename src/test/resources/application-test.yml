@@ -1,0 +1,32 @@
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:h2:mem:demoRefKtTest;TRACE_LEVEL_FILE=4
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    initialization-mode: always
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.hbm2ddl.import_files: schema.sql
+  h2:
+    console:
+      enabled: false
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: true
+
+inventory:
+  active-items:
+    enabled: true
+    cron-period: 0 * * * * *
+
+azure:
+  serviceBus:
+    connectionString: Endpoint=sb://tech.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=P8UtCBChC+d6UoxaIXjiNeMt6Vr8f658746QdUH5ABg=
+    topicName: mdt_price
+    subscriptionName: mdt_api
